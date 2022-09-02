@@ -5,8 +5,8 @@ function replaceText(element) {
     element.childNodes.forEach(replaceText)
   } else if (element.nodeType === Text.TEXT_NODE) {
     if (element.textContent.match(/Murphy/gi)) {
-      const newElement = document.createElement('span')
-      newElement.innerHTML = element.textContent.replace(/(Murphy)/gi, '<span class="red">$1</span>')
+      const newElement = document.createElement('div')
+      newElement.innerHTML = element.textContent.replace(/(Murphy)/gi, '<div class="tooltip"> $1 <span class="tooltiptext">Tooltip text</span> </div>')
       element.replaceWith(newElement)
     }
   }
