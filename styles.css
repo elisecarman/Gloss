@@ -34,10 +34,3 @@
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
-
-/* Horizontal Stack */
-
-.hstack {
-  display: flex;
-  flex-direction: row;
-}

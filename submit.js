@@ -1,12 +1,9 @@
-submitButton = document.querySelector(".submit");
-submitButton.addEventListener("click", () => {
-  console.log("help");
+submitButton = document.getElementById("json-input");
+submitButton.addEventListener("submit", (e) => {
+  e.preventDefault();
+  submit(e.target.elements.json.value);
 });
 
-submit();
-
-function submit() {
-  var json = document.getElementById("json-input");
-  console.log(json);
-  console.log(json.value);
+function submit(data) {
+  console.log(data);
 }
