@@ -15,19 +15,37 @@ for (i = 0; i < acc.length; i++) {
 }
 //END: ACCORDION
 
-replaceText(document.body);
+
+// INSERT ON HOVER POP UPS IN PAGE
+replaceText(document.body)
 
 function replaceText(element) {
+
+  const dict = {"Murphy" : "Muwwy",
+              "actor" : "acwor"}
+
   if (element.hasChildNodes()) {
-    element.childNodes.forEach(replaceText);
+    element.childNodes.forEach(replaceText)
   } else if (element.nodeType === Text.TEXT_NODE) {
-    if (element.textContent.match(/Murphy/gi)) {
-      const newElement = document.createElement("div");
-      newElement.innerHTML = element.textContent.replace(
-        /(Murphy)/gi,
-        '<div class="tooltip"> $1 <span class="tooltiptext">Tooltip text</span> </div>'
-      );
-      element.replaceWith(newElement);
+    if ( p = element.textContent.match(/(?<![A-Z])Murphy(?![A-Z])/g)) {
+      const newElement = document.createElement('div')
+     
+      console.log(p)
+
+      if (p.length > 1){
+        
+        for(i in p) {
+          const regex = new RegExp(`(?<![A-Z])${p[i]}(?![A-Z])`, "g");
+          const replacement = '<div class="tooltip">' + p[i] + '<span class="tooltiptext">' + dict[p[i]] + '</span> </div>'
+          newElement.innerHTML = element.textContent.replace(regex, replacement)
+          element.replaceWith(newElement) 
+        }
+
+    } else {
+      const replacement = '<div class="tooltip"> $1 <span class="tooltiptext">' + dict[p] + '</span> </div>'
+      newElement.innerHTML = element.textContent.replace(/((?<![A-Z])Murphy(?![A-Z]))/gi, replacement)
+        element.replaceWith(newElement)
+    }
     }
   }
 }
