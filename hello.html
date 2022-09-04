@@ -1,12 +1,39 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HTML 5 Boilerplate</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
   <body>
-    <h1>Gloss Extension</h1>
-    <div>
-      <form id="json-input">
-        <input name="json" placeholder="paste json here!" />
-        <input type="submit" />
-        <script src="submit.js"></script>
-      </form>
+    <div class="extension">
+      <h1>Gloss</h1>
+      <div class="container">
+        <h3>Add file</h3>
+        <form class="hstack" id="json-input">
+          <textarea name="json" placeholder="Paste glossary contents..."></textarea>
+          <input class="button" type="submit" />
+          <script src="submit.js"></script>
+        </form>
+      </div>
+      <div class="container">
+        <h3>Glossaries</h3>
+        <button class="accordion">Section 1</button>
+        <div class="panel">
+          <p>Lorem ipsum...</p>
+        </div>
+        <button class="accordion">Section 2</button>
+        <div class="panel">
+          <p>Lorem ipsum...</p>
+        </div>
+        <button class="accordion">Section 3</button>
+        <div class="panel">
+          <p>Lorem ipsum...</p>
+        </div>
+      </div>
+      <script src="script.js"></script>
     </div>
   </body>
 </html>
